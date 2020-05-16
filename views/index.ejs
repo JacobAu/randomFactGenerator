@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Random Fact Generator</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    </head>
+
+    <body>
+        <h1> Click a button for a fact!</h1>
+
+        <form action="/cat" method="POST" style="display: inline;">
+            <button class="ui pink button" name="data[cat]">Cat fact</button>
+        </form>
+        <form action="/dog" method="POST" style="display: inline;">
+            <button class="ui brown button" name="data[dog]">Dog fact</button>
+        </form>
+        <form action="/randomFact" method="POST" style="display: inline;">
+            <button class="ui red button" name="data[random]">Completely Random fact</button>
+        </form>
+        <% if(data.sent) {%>
+            <p><strong><%= data.type%></strong> fact: <%=data.fact%> </p>
+        <% } %>
+        
+        <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    </body>
+</html>
